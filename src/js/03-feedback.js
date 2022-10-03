@@ -15,6 +15,7 @@ refs.form.addEventListener('submit', onFormSubmit);
 fillFormData();
 
 function onSettingData(evt) {
+  formData[evt.target.name] = '';
   formData[evt.target.name] = evt.target.value;
   console.log(formData);
   localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
@@ -28,13 +29,15 @@ function onFormSubmit(evt) {
     return;
   }
 
-  console.log('Отправляем форму');
+  console.log('Відправляємо форму');
   evt.currentTarget.reset();
   localStorage.removeItem(STORAGE_KEY);
 }
 
 function fillFormData() {
   const savedData = JSON.parse(localStorage.getItem(STORAGE_KEY));
+
+  console.log(savedData);
 
   if (savedData) {
     refs.emailInput.value = savedData.email;
