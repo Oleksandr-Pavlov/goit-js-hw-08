@@ -44,5 +44,7 @@ function fillFormData() {
   if (savedData) {
     refs.emailInput.value = savedData.email;
     refs.messageText.value = savedData.message;
+    formData.email = savedData.email;
+    formData.message = savedData.message;
   }
 }
